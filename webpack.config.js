@@ -42,12 +42,28 @@ module.exports = {
 		})
 	],
 
-	// module: {
-	// 	rules: [
-	// 		{
-	// 			test: /\.css$/i,
-	// 			use: [MiniCssExtractPlugin.loader, 'css-loader'],
-	// 		},
-	// 	],
-	// },
+	module: {
+		rules: [
+			// loader for scss->css
+			{
+			  test: /\.s[ac]ss$/i,
+			  use: [
+				MiniCssExtractPlugin.loader,
+				"css-loader",
+				"sass-loader",
+			  ],
+			},
+			// loader babel transpiller
+			{
+				test: /\.m?js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env']
+					}
+				}
+			}
+		  ],
+	},
 }

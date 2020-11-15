@@ -1,4 +1,2 @@
-import {myvar} from './mymodule'
+import './scss/index.scss'
 
-console.log('Working now...');
-console.log(myvar)
